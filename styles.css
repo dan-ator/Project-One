@@ -1,19 +1,78 @@
-#card {
-
+body {
+  background-color: rgb(177, 189, 212);
+  min-width: 800px;
 }
-
+#flashCardArea {
+  margin: 10px auto;
+  width: 50%;
+}
+.card {
+  border: 5px;
+  border-style: solid;
+  border-color: rgb(68, 70, 83);
+  height: 250px;
+  width: 100%;
+  font-size: 90px;
+  margin: 10px auto;
+  text-align: center;
+}
+#backOfCard {
+  display: none;
+  background-color: white;
+}
+#frontOfCard {
+  background-color: lightgrey;
+}
 #score {
-
+  border: 5px;
+  border-style: solid;
+  border-color: grey;
+  height: 125px;
+  width: 125px;
+  font-size: 50px;
+  text-align: center;
+  background-color: white;
 }
-
 h1 {
   font-size: 30px;
+  text-align: center;
 }
-
 h2 {
- font-size: 20px;
+  font-size: 20px;
 }
-
-"button" {
-
+button {
+  color: red;
+}
+#scoreBoard {
+  margin: 10px auto;
+  width: 50%;
+  height: 30px;
+  position: relative;
+  display: none;
+}
+.buttons {
+  color: black;
+}
+#correctButton {
+  background-color: green;
+  color: black;
+}
+#incorrectButton {
+  background-color: red;
+  color: black;
+}
+#rightAnswer {
+  color: green;
+}
+#wrongAnswer {
+  color: red;
+}
+#previous {
+  display: none;
+}
+#next {
+  display: none;
+}
+#reset {
+  display: none;
 }

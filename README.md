@@ -8,3 +8,4 @@ User Stories:
 3. As a user, I want to play with flash cards to have fun.
 4. As a user, I want to customize the flash cards to learn specifically what I need to learn.
 5. As a user, I want to play flashcards to compete against my friends.
+6. As a user I want to be able to add pictures to improve my performance.
