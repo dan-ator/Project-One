@@ -19,9 +19,12 @@ body {
 #backOfCard {
   display: none;
   background-color: white;
+  line-height: 200px;
 }
 #frontOfCard {
   background-color: lightgrey;
+  line-height: 200px;
+
 }
 h1 {
   font-size: 40px;
