@@ -52,6 +52,7 @@ function initializeGame() {
     $("#previous").css("display", "inline-block")
     $("#scoreBoard").css("display", "inline-block")
     $("#start").css("display", "none")
+    $("#instructions").css("display","none")
   }
 }
 
@@ -60,22 +61,25 @@ function flip() {
   $("#backOfCard").toggle();
 }
 
+function removeCard () {
+  cardData.splice(currentNumber, 1);
+  drawCard();
+}
+
 function markCorrect() {
   if (currentNumber < (cardData.length - 1)) {
-    $("#backOfCard").css("background-color", "green");
+    removeCard();
+  } else if ((currentNumber <= (cardData.length-1)) && (cardData.length > 1)){
     cardData.splice(currentNumber, 1);
-    drawCard();
-  } else if (currentNumber === (cardData.length < 1)) {
-    cardData.splice(currentNumber, 1);
-    currentNumber = 0;
-    drawCard();
+     currentNumber = 0;
+     drawCard();
   } else {
     $("#next").css("display", "none");
     $("#previous").css("display", "none");
     $("#scoreBoard").css("display", "none");
     $(".card").empty();
     $("#reset").css("display", "inline-block");
-    alert("You're a Genius!");
+    alert("You're So Smart!")
   }
 }
 
@@ -89,11 +93,19 @@ $("#next").on("click", nextButton);
 $("#previous").on("click", previousButton);
 $("#frontOfCard").on("click", flip);
 $("#backOfCard").on("click", flip);
-$("#frontOfCard").keydown(flip);
+$("#frontOfCard").on("keydown",function(){
+  console.log("key is down")
+});
 $("#backOfCard").on("keydown", flip);
 $("#correctButton").on("click", markCorrect);
 $("#incorrectButton").on("click", markWrong);
 
 $("#reset").click(function() {
   document.location.reload(true);
+});
+
+//Make your own cards area//
+$( "#cardCreator" ).submit(function(event) {
+  console.log( $( this ).serializeArray() );
+  event.preventDefault();
 });

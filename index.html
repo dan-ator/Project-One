@@ -13,20 +13,28 @@
   <div id="flashCardArea">
     <div id="frontOfCard" class="card"></div>
     <div id="backOfCard" class="card"></div>
-    <button type="buton" id="start">Start</button>
+    <p id="instructions">Click 'Start' to begin with a pre-loaded set of cards, or enter your own terms in the fields below.</p>
+    <button type="button" id="start">Start</button>
     <button type="button" id="next">Next</button>
     <button type="button" id="previous">Previous</button>
     <button id="reset">Start Over</button>
   </div>
 
   <div id="scoreBoard">
-    <h2>Mark Your Answer</h2>
+    <h2>Mark Your Answer!</h2>
     <button type="button" id="correctButton">Correct</button>
     <button type="button" id="incorrectButton">Incorrect</button>
   </div>
-</body>
 
+  <form id="cardCreator">
+    <h2>Make Your Own!</h2>
+    <input type="text" name="front" placeholder="Term">
+    <input type="text" name="back" placeholder="Definition">
+    <input type="submit" value="Submit"/>
+  </form>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="script.js"></script>
+</body>
+
 
 </html>
