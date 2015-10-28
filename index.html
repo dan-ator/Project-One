@@ -13,27 +13,30 @@
   <div id="flashCardArea">
     <div id="frontOfCard" class="card"></div>
     <div id="backOfCard" class="card"></div>
-    <p id="instructions">Click 'Start' to begin with a pre-loaded set of cards, or enter your own terms in the fields below.</p>
+    <p id="instructions">Click 'Start' to begin with a pre-loaded set of cards.
+      <br> To flip a card, click on the card or press the 'f' key.
+      <br> To move through the deck, click the 'next' and 'previous' buttons.
+      <br> Mark your answers using the red and green buttons.
+      <br> A correct answer will remove the card from the deck,
+      <br> while an incorrect card will remain until you get it right!</p>
     <button type="button" id="start">Start</button>
     <button type="button" id="next">Next</button>
     <button type="button" id="previous">Previous</button>
     <button id="reset">Start Over</button>
-  </div>
-
-  <div id="scoreBoard">
-    <h2>Mark Your Answer!</h2>
     <button type="button" id="correctButton">Correct</button>
     <button type="button" id="incorrectButton">Incorrect</button>
   </div>
 
-  <form id="cardCreator">
+
+  <!-- Incomplete attempt to add user-input functionality. -->
+  <!-- <form id="cardCreator">
     <h2>Make Your Own!</h2>
     <input type="text" name="front" placeholder="Term">
     <input type="text" name="back" placeholder="Definition">
-    <input type="submit" value="Submit"/>
-  </form>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="script.js"></script>
+    <input type="submit" value="Submit" />
+  </form> -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 

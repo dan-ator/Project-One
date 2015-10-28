@@ -28,7 +28,7 @@ function drawCard() {
   $("#backOfCard").hide();
 }
 
-function nextButton() {
+function advanceCard() {
   if (currentNumber < (cardData.length - 1)) {
     currentNumber++;
     drawCard();
@@ -38,7 +38,7 @@ function nextButton() {
   }
 }
 
-function previousButton() {
+function reverseCard() {
   if (currentNumber >= 1) {
     currentNumber--;
     drawCard();
@@ -48,20 +48,25 @@ function previousButton() {
 function initializeGame() {
   if (($("#frontOfCard").text() === "") && ($("#backOfCard").text() === "")) {
     drawCard();
-    $("#next").css("display", "inline-block")
-    $("#previous").css("display", "inline-block")
-    $("#scoreBoard").css("display", "inline-block")
-    $("#start").css("display", "none")
-    $("#instructions").css("display","none")
+    toggleButtons();
+    $("#start").toggle();
+    $("#instructions").toggle();
   }
 }
 
-function flip() {
+function toggleButtons() {
+  $("#next").toggle();
+  $("#previous").toggle();
+  $("#correctButton").toggle();
+  $("#incorrectButton").toggle();
+}
+
+function flipCard() {
   $("#frontOfCard").toggle();
   $("#backOfCard").toggle();
 }
 
-function removeCard () {
+function removeCard() {
   cardData.splice(currentNumber, 1);
   drawCard();
 }
@@ -69,17 +74,15 @@ function removeCard () {
 function markCorrect() {
   if (currentNumber < (cardData.length - 1)) {
     removeCard();
-  } else if ((currentNumber <= (cardData.length-1)) && (cardData.length > 1)){
+  } else if ((currentNumber <= (cardData.length - 1)) && (cardData.length > 1)) {
     cardData.splice(currentNumber, 1);
-     currentNumber = 0;
-     drawCard();
+    currentNumber = 0;
+    drawCard();
   } else {
-    $("#next").css("display", "none");
-    $("#previous").css("display", "none");
-    $("#scoreBoard").css("display", "none");
+    toggleButtons();
     $(".card").empty();
     $("#reset").css("display", "inline-block");
-    alert("You're So Smart!")
+    alert("You're So Smart!");
   }
 }
 
@@ -89,14 +92,16 @@ function markWrong() {
 }
 
 $("#start").on("click", initializeGame);
-$("#next").on("click", nextButton);
-$("#previous").on("click", previousButton);
-$("#frontOfCard").on("click", flip);
-$("#backOfCard").on("click", flip);
-$("#frontOfCard").on("keydown",function(){
-  console.log("key is down")
+$("#next").on("click", advanceCard);
+$("#previous").on("click", reverseCard);
+$("#frontOfCard").on("click", flipCard);
+$("#backOfCard").on("click", flipCard);
+$("body").on("keydown", function(e) {
+  if (e.keyCode === 70) {
+    flipCard();
+  }
 });
-$("#backOfCard").on("keydown", flip);
+
 $("#correctButton").on("click", markCorrect);
 $("#incorrectButton").on("click", markWrong);
 
@@ -105,7 +110,7 @@ $("#reset").click(function() {
 });
 
 //Make your own cards area//
-$( "#cardCreator" ).submit(function(event) {
-  console.log( $( this ).serializeArray() );
-  event.preventDefault();
-});
+// $( "#cardCreator" ).submit(function(event) {
+//   console.log( $( this ).serializeArray() );
+//   event.preventDefault();
+// });
