@@ -16,6 +16,11 @@ body {
   margin: 10px auto;
   text-align: center;
 }
+
+/* instead of IDs, I'd use the fact that your divs are nested in the .card div 
+and do something like this:
+.card .back { ... }
+*/
 #backOfCard {
   display: none;
   background-color: white;
